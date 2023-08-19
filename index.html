@@ -1,171 +1,340 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 
-<head>
-    <title>1A2B</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3636257488152258"
-        crossorigin="anonymous"></script>
-    <link rel="icon" href="./favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="1A2B遊戲">
-</head>
+    <head>
+        <title>1A2B</title>
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3636257488152258"
+            crossorigin="anonymous"></script>
+        <link rel="icon" href="./favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="1A2B遊戲">
+    </head>
 
-<body>
-    <span id="tip">請輸入四位數字</span>&nbsp;<input id="input"><button onmousedown="enter()" id="enter">送出</button><br>
+    <body>
+        <span id="tip">請輸入四位數字</span>&nbsp;<input id="input"><button onmousedown="enter()" id="enter">送出</button><br>
 
-    <script>
-        function getRandom(x) {
-            return Math.floor(Math.random() * x);
-        }
-        function enter() {
-            let A = 0, B = 0;
-            a = input.value.trim(); //a=輸入的值
-            if (a.length != 4 || a === '' || isNaN(a)) {
-                alert("請輸入4位數字");
-                return;
+        <script>
+            function getRandom(x) {
+                return Math.floor(Math.random() * x);
             }
-            console.log("您輸入 " + a);
-            a1 = a[0];
-            a2 = a[1];
-            a3 = a[2];
-            a4 = a[3];
-            console.log("答案 " + ans1 + ans2 + ans3 + ans4)
-            input.value = "";
-            if (a1 == ans1) {
-                A += 1;
-                B--;
-            }
-            if (a2 == ans2) {
-                A += 1;
-                B--;
-            }
-            if (a3 == ans3) {
-                A += 1;
-                B--;
-            }
-            if (a4 == ans4) {
-                A += 1;
-                B--;
-            }
-            if (a1 == ans1 || a1 == ans2 || a1 == ans3 || a1 == ans4) {
-                B++;
-            }
-            if (a2 == ans1 || a2 == ans2 || a2 == ans3 || a2 == ans4) {
-                B++;
-            }
-            if (a3 == ans1 || a3 == ans2 || a3 == ans3 || a3 == ans4) {
-                B++;
-            }
-            if (a4 == ans1 || a4 == ans2 || a4 == ans3 || a4 == ans4) {
-                B++;
-            }
-            console.log(A + "A" + B + "B");
+            function enter() {
+                let A = 0, B = 0;
+                a = input.value.trim(); //a=輸入的值
+                if (a.length != 4 || a === '' || isNaN(a)) {
+                    alert("請輸入4位數字");
+                    if (a == 'answer') {
+                        alert(ans1 + ans2 + ans3 + ans4);
+                    }
+                    return;
+                }
+                console.log("您輸入 " + a);
+                a1 = a[0];
+                a2 = a[1];
+                a3 = a[2];
+                a4 = a[3];
+                console.log("答案 " + ans1 + ans2 + ans3 + ans4)
+                input.value = "";
+                if (a1 == ans1) {
+                    A += 1;
+                    B--;
+                }
+                if (a2 == ans2) {
+                    A += 1;
+                    B--;
+                }
+                if (a3 == ans3) {
+                    A += 1;
+                    B--;
+                }
+                if (a4 == ans4) {
+                    A += 1;
+                    B--;
+                }
+                if (a1 == ans1 || a1 == ans2 || a1 == ans3 || a1 == ans4) {
+                    B++;
+                }
+                if (a2 == ans1 || a2 == ans2 || a2 == ans3 || a2 == ans4) {
+                    B++;
+                }
+                if (a3 == ans1 || a3 == ans2 || a3 == ans3 || a3 == ans4) {
+                    B++;
+                }
+                if (a4 == ans1 || a4 == ans2 || a4 == ans3 || a4 == ans4) {
+                    B++;
+                }
+                if (A == 4) {
+                    alert('You win');
+                }
+                console.log(A + "A" + B + "B");
 
-            var x = document.createElement("h3");
-            var t = document.createTextNode(a + '\xa0\xa0\xa0\xa0\xa0\xa0');
-            x.className = "ABclass"
-            x.appendChild(t);
-            document.body.appendChild(x);
+                var x = document.createElement("h3");
+                var t = document.createTextNode(a + '\xa0\xa0\xa0\xa0\xa0\xa0');
+                x.className = "ABclass"
+                x.appendChild(t);
+                document.body.appendChild(x);
 
-            var x = document.createElement("h3");
-            var t = document.createTextNode(A + "A" + B + "B");
-            x.className = "ABclass"
-            x.appendChild(t);
-            document.body.appendChild(x);
+                var x = document.createElement("h3");
+                var t = document.createTextNode(A + "A" + B + "B");
+                x.className = "ABclass"
+                x.appendChild(t);
+                document.body.appendChild(x);
 
-            var x = document.createElement("br");
-            var t = document.createTextNode(A + "A" + B + "B");
-            x.className = "ABclass"
-            x.appendChild(t);
-            document.body.appendChild(x);
-            //document.getElementById("AB2").innerHTML = + " " + A + "A" + B + "B";
-        }
-        var a = '';
-        const input = document.getElementById('input');
-        input.addEventListener('keydown', function (event) {
-            if (event.keyCode == 13) {
-                enter();
+                var x = document.createElement("br");
+                var t = document.createTextNode(A + "A" + B + "B");
+                x.className = "ABclass"
+                x.appendChild(t);
+                document.body.appendChild(x);
+                //document.getElementById("AB2").innerHTML = + " " + A + "A" + B + "B";
             }
-        })
+            var a = '';
+            const input = document.getElementById('input');
+            input.addEventListener('keydown', function (event) {
+                if (event.keyCode == 13) {
+                    enter();
+                }
+            })
 
-        let ans1 = 0, ans2 = 0, ans3 = 0, ans4 = 0; //answer
-        ans1 = getRandom(10);
-        while (ans1 == 0) {
+            let ans1 = 0, ans2 = 0, ans3 = 0, ans4 = 0; //answer
             ans1 = getRandom(10);
-        }
-        ans2 = getRandom(10);
-        while (ans1 == ans2) {
+            while (ans1 == 0) {
+                ans1 = getRandom(10);
+            }
             ans2 = getRandom(10);
-        }
-        ans3 = getRandom(10);
-        while (ans3 == ans2 || ans3 == ans1) {
+            while (ans1 == ans2) {
+                ans2 = getRandom(10);
+            }
             ans3 = getRandom(10);
-        }
-        ans4 = getRandom(10);
-        while (ans4 == ans3 || ans4 == ans2 || ans4 == ans1) {
-            ans4 = getRandom(10);//int
-        }
-        ans1 = String(ans1)
-        ans2 = String(ans2)
-        ans3 = String(ans3)
-        ans4 = String(ans4)
+            while (ans3 == ans2 || ans3 == ans1) {
+                ans3 = getRandom(10);
+            }
+            ans4 = getRandom(10);
+            while (ans4 == ans3 || ans4 == ans2 || ans4 == ans1) {
+                ans4 = getRandom(10);//int
+            }
+            ans1 = String(ans1)
+            ans2 = String(ans2)
+            ans3 = String(ans3)
+            ans4 = String(ans4)
 
-        let a1, a2, a3, a4;
+            let a1, a2, a3, a4;
 
-    </script>
-    <style>
-        h3 {
-            font-size: 50px;
-            color: rgb(138, 9, 250);
-            display: inline
-        }
+        </script>
+        <style>
+            h3 {
+                font-size: 50px;
+                color: rgb(138, 9, 250);
+                display: inline
+            }
 
-        #enter {
-            background: none;
-            border: 2px solid #4CAF50;
-            color: #4CAF50;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 25px;
-            font-weight: bold;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
+            #enter {
+                background: none;
+                border: 2px solid #4CAF50;
+                color: #4CAF50;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 25px;
+                font-weight: bold;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
 
-        /* 滑鼠移過button時的效果 */
-        #enter:hover {
-            background-color: #4CAF50;
-            color: white;
-            transform: scale(1.1);
-            /* 讓button稍微放大一點 */
-        }
+            /* 滑鼠移過button時的效果 */
+            #enter:hover {
+                background-color: #4CAF50;
+                color: white;
+                transform: scale(1.1);
+                /* 讓button稍微放大一點 */
+            }
 
-        /* 按下button時的效果 */
-        #enter:active {
-            background-color: #45a049;
-            transform: scale(0.9);
-            /* 讓button稍微縮小一點 */
-        }
+            /* 按下button時的效果 */
+            #enter:active {
+                background-color: #45a049;
 
-        body {
-            background-color: #ffcfff;
-        }
+            }
 
-        #tip {
-            font-size: 35px;
-        }
+            body {
+                background-color: #ffcfff;
+            }
 
-        #input {
-            font-size: 45px;
-            width: 110px;
-            height: 50px;
-            color: chocolate;
-        }
-    </style>
-</body>
+            #tip {
+                font-size: 35px;
+            }
+
+            #input {
+                font-size: 45px;
+                width: 110px;
+                height: 50px;
+                color: chocolate;
+            }
+        </style>
+    </body>
 
 </html>
+<!--DOCTYPE html>
+<html lang="zh-TW">
+
+    <head>
+        <title>1A2B</title>
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3636257488152258"
+            crossorigin="anonymous"></script>
+        <link rel="icon" href="./favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="1A2B遊戲">
+        <style>
+            body {
+                background-color: #ffcfff;
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            #tip {
+                font-size: 35px;
+                margin-bottom: 10px;
+            }
+
+            #input {
+                font-size: 45px;
+                width: 110px;
+                height: 50px;
+                color: chocolate;
+                border: 2px solid #4CAF50;
+                border-radius: 8px;
+                padding: 5px 10px;
+            }
+
+            #enter {
+                background: none;
+                border: 2px solid #4CAF50;
+                color: #4CAF50;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 25px;
+                font-weight: bold;
+                margin-top: 10px;
+                cursor: pointer;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            /* 滑鼠移過button時的效果 */
+            #enter:hover {
+                background-color: #4CAF50;
+                color: white;
+                transform: scale(1.1);
+            }
+
+            /* 按下button時的效果 */
+            #enter:active {
+                background-color: #45a049;
+                transform: scale(0.9);
+            }
+
+            h3 {
+                font-size: 50px;
+                color: rgb(138, 9, 250);
+                display: inline;
+                margin: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <span id="tip">請輸入四位數字</span>
+        <input id="input" maxlength="4">
+        <button onmousedown="enter()" id="enter">送出</button>
+        <div id="output"></div>
+        <script>
+            function getRandom(x) {
+                return Math.floor(Math.random() * x);
+            }
+
+            function enter() {
+                let A = 0, B = 0;
+                const a = input.value.trim();
+                if (a.length !== 4 || isNaN(a)) {
+                    alert("請輸入4位數字");
+                    return;
+                }
+
+                console.log("您輸入 " + a);
+                const [a1, a2, a3, a4] = a.split('');
+
+                if (a1 === ans1) {
+                    A += 1;
+                    B--;
+                }
+                if (a2 === ans2) {
+                    A += 1;
+                    B--;
+                }
+                if (a3 === ans3) {
+                    A += 1;
+                    B--;
+                }
+                if (a4 === ans4) {
+                    A += 1;
+                    B--;
+                }
+
+                [ans1, ans2, ans3, ans4].forEach((ans, index) => {
+                    if ([a1, a2, a3, a4].includes(ans)) {
+                        B++;
+                    }
+                });
+
+                console.log(A + "A" + B + "B");
+
+                const outputDiv = document.getElementById("output");
+
+                const guessElement = document.createElement("h3");
+                guessElement.textContent = a + '\xa0\xa0\xa0\xa0\xa0\xa0';
+                outputDiv.appendChild(guessElement);
+
+                const resultElement = document.createElement("h3");
+                resultElement.textContent = A + "A" + B + "B";
+                outputDiv.appendChild(resultElement);
+            }
+
+            const input = document.getElementById('input');
+            input.addEventListener('keydown', function (event) {
+                if (event.keyCode === 13) {
+                    enter();
+                }
+            })
+
+            let ans1 = getRandom(10);
+            while (ans1 === 0) {
+                ans1 = getRandom(10);
+            }
+            let ans2 = getRandom(10);
+            while (ans1 === ans2) {
+                ans2 = getRandom(10);
+            }
+            let ans3 = getRandom(10);
+            while (ans3 === ans2 || ans3 === ans1) {
+                ans3 = getRandom(10);
+            }
+            let ans4 = getRandom(10);
+            while (ans4 === ans3 || ans4 === ans2 || ans4 === ans1) {
+                ans4 = getRandom(10);
+            }
+            ans1 = String(ans1);
+            ans2 = String(ans2);
+            ans3 = String(ans3);
+            ans4 = String(ans4);
+        </script>
+    </body>
+
+</html-->
